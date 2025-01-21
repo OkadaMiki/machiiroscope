@@ -1,0 +1,106 @@
+:root {
+    --font-color: #404040;
+    --white: floralwhite;
+    --gray: lightgray;
+    --pink: lightpink;
+    --green: lightseagreen;
+}
+
+body,
+html {
+    font-family: "Zen Maru Gothic", serif;
+    color: var(--font-color);
+    background: var(--white);
+    font-size: 62.5%;
+}
+
+main {
+    width: 100%;
+    height: 95vh;
+    padding: 10vh 0 5vh;
+}
+
+div.townArea {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: url(/img/townimage_77042.jpg) center center / contain no-repeat;
+}
+
+div.itemArea {
+    position: absolute;
+}
+div.itemArea1 {
+    top: 160px;
+    left: 376px;
+}
+div.itemArea2 {
+    top: 240px;
+    left: 880px;
+}
+
+.item {
+    width: 40px;
+    height: 40px;
+    background-color: var(--green);
+    opacity: 0.75;
+    color: var(--white);
+    font-size: 1.6rem;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+}
+
+.item.clicked {
+    animation: none;
+    background-color: var(--pink);
+    opacity: 0.75;
+}
+
+.item.completed {
+    animation: none;
+    background-color: var(--gray); /* 押した後の背景色 */
+    cursor: default; /* クリック不可っぽく見せる */
+    opacity: 0.25;
+}
+
+.text {
+    display: none;
+    position: absolute;
+    bottom: -30px;
+    font-size: 1rem;
+    color: var(--font-color);
+    background: var(--white);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.item.clicked + .text {
+    display: block;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+footer {
+    height: 5vh;
+    text-align: center;
+    p {
+        line-height: 5vh;
+    }
+}
