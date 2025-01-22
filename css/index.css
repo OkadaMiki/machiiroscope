@@ -1,9 +1,10 @@
 :root {
     --font-color: #404040;
     --white: floralwhite;
-    --gray: lightgray;
+    --gray: darkgray;
     --pink: lightpink;
     --green: lightseagreen;
+    --purple: mediumpurple;
 }
 
 body,
@@ -32,21 +33,30 @@ div.townArea {
 }
 
 div.itemArea {
+    width: 240px;
+    height: 40px;
     position: absolute;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 div.itemArea1 {
-    top: 160px;
-    left: 376px;
+    top: 192px;
+    left: 456px;
 }
 div.itemArea2 {
-    top: 240px;
-    left: 880px;
+    top: 280px;
+    left: 848px;
+}
+div.itemArea3 {
+    top: 392px;
+    left: 560px;
 }
 
 .item {
     width: 40px;
     height: 40px;
-    background-color: var(--green);
+    background-color: var(--purple);
     opacity: 0.75;
     color: var(--white);
     font-size: 1.6rem;
@@ -59,30 +69,36 @@ div.itemArea2 {
 .item.clicked {
     animation: none;
     background-color: var(--pink);
-    opacity: 0.75;
 }
 
 .item.completed {
     animation: none;
     background-color: var(--gray); /* 押した後の背景色 */
     cursor: default; /* クリック不可っぽく見せる */
-    opacity: 0.25;
 }
 
-.text {
+p.text {
     display: none;
     position: absolute;
-    bottom: -30px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: var(--font-color);
     background: var(--white);
     padding: 5px 10px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+p.text1 {
+    bottom: -80px;
+}
+p.text2 {
+    bottom: -80px;
+}
+p.text3 {
+    bottom: -80px;
+}
 
 .item.clicked + .text {
-    display: block;
+    display: inline-block;
 }
 
 @keyframes pulse {
@@ -90,11 +106,30 @@ div.itemArea2 {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.1);
+        transform: scale(1.2);
     }
     100% {
         transform: scale(1);
     }
+}
+
+.resetBtn {
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    padding: 10px 20px;
+    font-size: 1.6rem;
+    color: var(--white);
+    background-color: var(--pink);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.resetBtn:hover {
+    background-color: var(--purple);
 }
 
 footer {
