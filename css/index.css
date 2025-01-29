@@ -15,10 +15,45 @@ html {
     font-size: 62.5%;
 }
 
-main {
-    width: 100%;
+.screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
     height: 95vh;
+}
+
+.welcome{
+    flex-direction: column;
+    .wordsBtnArea{
+    }
+    .startBtn{
+        margin-top: 40px;
+    }
+}
+
+.startBtn {
+    padding: 10px 20px;
+    font-size: 1.8rem;
+    color: var(--white);
+    background-color: var(--pink);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.startBtn:hover {
+    background-color: var(--purple);
+}
+
+main {
     padding: 10vh 0 5vh;
+}
+
+main.hidden{
+    display: none;
 }
 
 div.townArea {

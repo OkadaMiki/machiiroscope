@@ -1,5 +1,14 @@
+const welcome = document.querySelector(".welcome");
+const main = document.querySelector(".main");
+const start = document.querySelector(".startBtn");
 const items = document.querySelectorAll(".item");
 const resetBtn = document.querySelector(".resetBtn");
+
+// スタートボタンが押された時
+start.addEventListener("click", () => {
+    welcome.style.display = "none";
+    main.classList.remove("hidden");
+});
 
 // ローカルストレージから状態をロードして適用
 function loadState() {
