@@ -25,8 +25,6 @@ html {
 
 .welcome{
     flex-direction: column;
-    .wordsBtnArea{
-    }
     .startBtn{
         margin-top: 40px;
     }
@@ -52,8 +50,14 @@ main {
     padding: 10vh 0 5vh;
 }
 
-main.hidden{
+.hidden{
     display: none;
+}
+.welcomeText {
+    display: none;
+}
+.welcomeText.active {
+    display: block;
 }
 
 div.townArea {

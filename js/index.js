@@ -3,6 +3,45 @@ const main = document.querySelector(".main");
 const start = document.querySelector(".startBtn");
 const items = document.querySelectorAll(".item");
 const resetBtn = document.querySelector(".resetBtn");
+const nextBtn = document.querySelector(".nextBtn");
+const backBtn = document.querySelector(".backBtn");
+const texts = document.querySelectorAll(".welcomeText");
+let currentText = 0;
+
+// 初期状態設定
+texts[currentText].classList.add("active");
+
+// 次へボタンのクリックイベント
+nextBtn.addEventListener("click", () => {
+    texts[currentText].classList.remove("active"); // 現在のテキストを非表示
+    currentText++; // 次のインデックスへ
+
+    // 次のテキストを表示
+    texts[currentText].classList.add("active");
+
+    // ボタンの状態を更新
+    backBtn.disabled = false; // もどるボタンを有効化
+    if (currentText === texts.length - 1) {
+        nextBtn.classList.add("hidden"); // 次へボタンを隠す
+        startBtn.classList.remove("hidden"); // スタートボタンを表示
+    }
+});
+
+// もどるボタンのクリックイベント
+backBtn.addEventListener("click", () => {
+    texts[currentText].classList.remove("active"); // 現在のテキストを非表示
+    currentText--; // 前のインデックスへ
+
+    // 前のテキストを表示
+    texts[currentText].classList.add("active");
+
+    // ボタンの状態を更新
+    nextBtn.classList.remove("hidden"); // 次へボタンを表示
+    startBtn.classList.add("hidden"); // スタートボタンを隠す
+    if (currentText === 0) {
+        backBtn.disabled = true; // もどるボタンを無効化
+    }
+});
 
 // スタートボタンが押された時
 start.addEventListener("click", () => {
